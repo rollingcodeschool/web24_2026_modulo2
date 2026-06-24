@@ -60,7 +60,7 @@ ALGORITMO
 */
 
 let frase = prompt("Ingrese la frase");
-let vocales = "a,á,e,é,i,í,o,ó,u,ú";
+let vocales = "aáeéiíoóuú";
 let contadorVocales = 0;
 
 for (let i = 0; i < frase.length; i++) {

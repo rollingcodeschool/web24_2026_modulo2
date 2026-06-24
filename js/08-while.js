@@ -91,7 +91,7 @@ while (opciones !== "Salir") {
       );
       break;
     case isNumber > saldo:
-      alert("Saldo insuficiente");
+      alert("Saldo insuficiente\nSaldo actual: $" + saldo);
       console.log(isNumber);
 
       opciones = prompt(
@@ -109,3 +109,26 @@ while (opciones !== "Salir") {
   }
 }
 alert(`El saldo restante de la cuenta es $${saldo}`);
+
+//Juego
+let intentos = 3;
+let respuestaCorrecta = "HELSINKI";
+let win = false;
+let input = "";
+
+while (intentos > 0) {
+  input = prompt(
+    "Cual es la capital de Finlandia? | tenés " + intentos + " intentos",
+  );
+  if (respuestaCorrecta === input.toUpperCase()) {
+    win = true;
+    intentos = 0;
+  } else {
+    intentos--;
+  }
+}
+if (win) {
+  alert("🎉GANASTE!!");
+} else {
+  alert("😔PERDISTE...");
+}
