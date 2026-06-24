@@ -57,19 +57,27 @@ ALGORITMO
 */
 
 let frase = "Que tal tu día, cómo lo pasaste?";
-let vocales = "a,e,i,o,u,á,é,í,ó,ú";
+let vocales = "aeiouáéíóú";
 let contadorVocales = 0;
 
 for (let i = 0; i < frase.length; i++) {
-  switch (true) {
-    case frase[i].toLowerCase() === "a" || frase[i].toLowerCase() === "á":
-    case frase[i].toLowerCase() === "e" || frase[i].toLowerCase() === "é":
-    case frase[i].toLowerCase() === "i" || frase[i].toLowerCase() === "í":
-    case frase[i].toLowerCase() === "o" || frase[i].toLowerCase() === "ó":
-    case frase[i].toLowerCase() === "u" || frase[i].toLowerCase() === "ú":
+  for (let indexVocal = 0; indexVocal < vocales.length; indexVocal++) {
+    if (frase[i] === vocales[indexVocal]) {
       contadorVocales++;
-      break;
+    }
   }
 }
+
+// for (let i = 0; i < frase.length; i++) {
+//   switch (true) {
+//     case frase[i].toLowerCase() === "a" || frase[i].toLowerCase() === "á":
+//     case frase[i].toLowerCase() === "e" || frase[i].toLowerCase() === "é":
+//     case frase[i].toLowerCase() === "i" || frase[i].toLowerCase() === "í":
+//     case frase[i].toLowerCase() === "o" || frase[i].toLowerCase() === "ó":
+//     case frase[i].toLowerCase() === "u" || frase[i].toLowerCase() === "ú":
+//       contadorVocales++;
+//       break;
+//   }
+// }
 
 console.log(`La frase tiene ${contadorVocales} vocales`);
