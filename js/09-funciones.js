@@ -53,3 +53,7 @@ function calcularDescuento(valor, descuento = 5) {
 //   `El valor a abonar de la compra es $${calcularDescuento(3000, 15)}`,
 // );
 // console.log(`El valor de la compra es $${calcularDescuento(6078, 10)}`);
+
+//Scope
+
+//Función flecha
