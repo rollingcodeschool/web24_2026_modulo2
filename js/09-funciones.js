@@ -55,5 +55,54 @@ function calcularDescuento(valor, descuento = 5) {
 // console.log(`El valor de la compra es $${calcularDescuento(6078, 10)}`);
 
 //Scope
+let usuario = "pmarino";
+let password = "12345";
+
+function validarCredenciales(user, pass) {
+  let usuario = "pepito";
+  let password = "12345678";
+  //   console.log(usuario);
+
+  if (user === usuario && pass === password) {
+    alert("✅Acceso habilitado");
+  } else {
+    alert("❌Usuario o contraseña incorrectos");
+  }
+}
 
 //Función flecha
+const calcularDescuentoArrow = (valor, descuento = 5) =>
+  Number(valor - (valor * descuento) / 100);
+
+const generadorDeTablaArrow = (tabla) => {
+  if (tabla) {
+    for (let i = 1; i <= 10; i++) {
+      console.log(`${tabla} x ${i} = ${tabla * i}`);
+    }
+  }
+};
+
+const compraConDescuento = () => {
+  alert("🤑 Bienvenid@ al sistema de descuentos");
+  let compra = Number(prompt("🤑 Ingresá el valor de la compra..."));
+
+  if (!isNaN(compra)) {
+    switch (true) {
+      case compra < 100:
+        return "🤑 No tiene descuento";
+
+      case compra <= 300:
+        return "El descuento es del 5%";
+
+      case compra <= 500:
+        return "El descuento es del 10%";
+
+      default:
+        return "Descuento del 15%";
+    }
+  } else {
+    alert("❌No ingresó un valor númerico");
+  }
+};
+
+// console.log(compraConDescuento() + " Amigazo!!");
