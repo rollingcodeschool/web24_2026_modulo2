@@ -38,3 +38,14 @@ const backupListaDeCompras = listaDeCompras.slice(0, 3);
 const listaElementosLimpieza = ["Detergente", "Jabón", "Papel higiénico"];
 
 const listaCompleta = listaDeCompras.concat(listaElementosLimpieza);
+
+//CRUD
+//Create, Read, Update, Delete
+//splice()
+
+//borrar
+listaCompleta.splice(2, 1); //eliminamos 1 elemento de la posición 2
+//Agregar elementos
+listaCompleta.splice(5, 0, "Trapo de piso", "Escoba");
+//Modificar o actualizar
+listaCompleta.splice(2, 1, "Pollo", "Café"); //Reemplazo posición 2 y agrego un elemento más

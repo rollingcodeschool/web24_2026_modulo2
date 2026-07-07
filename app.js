@@ -1,110 +1,89 @@
-let index = 5; //declaro la variable con la que controlo el bucle
-index <= 10; //la condición para que el bucle se ejecute
-index++; //manejo la iteración
+const productosTecnologicos = [
+  "Smartphone MarcaA Pro 256GB",
+  "Smartphone MarcaB Lite 128GB",
+  "Smartphone MarcaC Ultra 512GB",
+  "Laptop MarcaA Air 16GB RAM",
+  "Laptop MarcaB Pro 32GB RAM",
+  "Laptop MarcaC Office 8GB RAM",
+  "Auriculares Inalámbricos Sony NC",
+  "Auriculares Inalámbricos Bose Comfort",
+  "Auriculares Inalámbricos Apple Pro",
+  "Smartwatch Deportivo Garmin GPS",
+  "Smartwatch Casual Samsung Fit",
+  "Smartwatch Premium Apple Watch",
+  "Monitor Gaming 27 pulgadas 144Hz",
+  "Monitor Curvo 34 pulgadas Ultrawide",
+  "Monitor Oficina 24 pulgadas 4K",
+  "Tablet GamaAlta 12 pulgadas",
+  "Tablet Media 10 pulgadas",
+  "Tablet Económica 8 pulgadas",
+  "Teclado Mecánico RGB BlueSwitch",
+  "Teclado Mecánico Compacto RedSwitch",
+  "Teclado Membrana Ergonómico",
+  "Mouse Inalámbrico Precisión Pro",
+  "Mouse Ergonómico Vertical",
+  "Mouse Gaming Sensor Óptico",
+  "Cámara Mirrorless 4K Profesional",
+  "Cámara Compacta Vlogging",
+  "Cámara Deportiva Action Cam",
+  "Consola Videoconsola NextGen A",
+  "Consola Videoconsola Portátil B",
+  "Consola Videoconsola Retro Edition",
+];
 
-for (let index = 0; index < 10; index++) {
-  console.log(index);
-}
-//el resto del código
-console.log("Fin");
+//Callbacks
+//función que se envía como argumento de otra función
 
-//Ejercicio 1
-/*
-ALGORITMO
-- DATOS: Un array de números repetidos
-- PROCESOS: creamos una lista llamada unicos vacia, recorrer la lista de números, comparar y guardamos los números sin repetir.
-- SALIDA: lista nueva con números no repetidos.
-*/
+// funcioncita(function(){})
 
-const numeros = [1, 2, 2, 3, 4, 4, 5, 1, 6];
+//find()
+//El método .find() recorre el array y devuelve el primer elemento que cumple con una condición que nosotros definimos.
+console.log(
+  productosTecnologicos.find(function (produc) {
+    //acciones
+    return produc === "Laptop MarcaA Air 16GB RAM";
+  }),
+);
 
-const unicos = [];
+productosTecnologicos.find((produc) => produc === "Laptop MarcaA Air 16GB RAM");
 
-for (let index = 0; index < numeros.length; index++) {
-  //   console.log("valor del index: " + index);
-  //   console.log("elemento dentro de numeros según el index: " + numeros[index]);
-  if (!unicos.includes(numeros[index])) {
-    unicos.push(numeros[index]);
-  }
-}
-console.log(unicos);
+const numeritos = [18, 22, 100, 15, 28, 12, 25, 19, 5];
 
-/*
-Ejercicio 2
-ALGORITMO
-- DATOS: dos arrays vacios y el array mixto
-- PROCESOS: recorro la lista mixta, identifico los números y los strings, los agrego a los arrays correspondientes
-- SALIDA: los dos arrays (números, strings)
+console.log(numeritos.find((num) => num > 20));
 
-*/
+//filter()
+//buscar monitores
+const monitores = productosTecnologicos.filter((cosita) =>
+  cosita.includes("Monitor"),
+);
 
-const mixto = ["Hola", 10, "Mundo", 25, 40, "Javascript", true];
+//buscar notebooks
+const notebooks = productosTecnologicos.filter(
+  (produc) => produc.includes("Laptop"), //[]
+);
 
-const soloNumeros = [];
-const soloStrings = [];
-
-for (let index = 0; index < mixto.length; index++) {
-  //   console.log(mixto[index]);
-  if (typeof mixto[index] === "string") {
-    soloStrings.push(mixto[index]);
-  }
-
-  if (typeof mixto[index] === "number") {
-    soloNumeros.push(mixto[index]);
-  }
-}
-
-console.log(soloNumeros);
-console.log(soloStrings);
-//--------------------------------------------------
-// const num = 10;
-
-// while (num < 10) {
-//   console.log("Hola!!");
-
-//   // break
+// if (notebooks.length > 0) {
+//   alert("✅Encontramos " + notebooks.length + " productos");
+// } else {
+//   alert("❌No hay productos para esta búsqueda");
 // }
 
-// do {
-//   //acciones
-//   console.log("Hola!!");
-// } while (num < 10);
+const buscarProductos = (termino) => {
+  return productosTecnologicos.filter((producto) => producto.includes(termino));
+};
 
-/*
-ALGORITO
-DATOS: palabra secreta, lista de palabras, indice inicial
-PROCESOS: recorrer la lista hasta que encuentre la palabra secreta y se termine el problema.
-SALIDA: Mensaje de que se encontró la palabra secreta en número de índice
-*/
+//forEach
+productosTecnologicos.forEach((item, index) =>
+  console.log(`${index + 1} - ${item}`),
+);
 
-const palabras = ["manzana", "perro", "objetivo", "casa", "sol"];
+// for (let index = 0; index < productosTecnologicos.length; index++) {
+//   console.log(`${index + 1} - ${productosTecnologicos[index]}`)
 
-const palabraSecreta = "objetivo";
-let indice = 0;
-
-while (true) {
-  if (palabras[indice] === palabraSecreta) {
-    console.log(`✅Se encontró la palabra secreta en el indice ${indice}`);
-    break;
-  } else if (indice === palabras.length) {
-    console.log(`❌No se encontró la palabra secreta`);
-    break;
-  }
-  indice++;
-}
-
-// while (palabras[indice] != palabraSecreta) { //mientras se cumpla la condición
-//     indice++
-//     if(indice===palabras.length){
-//         break;
-//     }
 // }
 
-// console.log(`La palabra secreta se encontró en el índice ${indice}`)
-
-/*
-ALGORITMO
-- DATOS: Batería inicial
-- PROCESOS: Realizar tareas con consumo de energía aleatorio(5-20).
-- SALIDA: Cuantas tareas realizó antes de quedarse sin batería
-*/
+//map()
+const productosConCodigo = productosTecnologicos.map((prod, index) => {
+  let cod = new Date().getTime() * (index + 1);
+  return `${prod}(cod: ${cod})`;
+});
