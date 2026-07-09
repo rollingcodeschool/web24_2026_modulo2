@@ -1,89 +1,67 @@
-const productosTecnologicos = [
-  "Smartphone MarcaA Pro 256GB",
-  "Smartphone MarcaB Lite 128GB",
-  "Smartphone MarcaC Ultra 512GB",
-  "Laptop MarcaA Air 16GB RAM",
-  "Laptop MarcaB Pro 32GB RAM",
-  "Laptop MarcaC Office 8GB RAM",
-  "Auriculares Inalámbricos Sony NC",
-  "Auriculares Inalámbricos Bose Comfort",
-  "Auriculares Inalámbricos Apple Pro",
-  "Smartwatch Deportivo Garmin GPS",
-  "Smartwatch Casual Samsung Fit",
-  "Smartwatch Premium Apple Watch",
-  "Monitor Gaming 27 pulgadas 144Hz",
-  "Monitor Curvo 34 pulgadas Ultrawide",
-  "Monitor Oficina 24 pulgadas 4K",
-  "Tablet GamaAlta 12 pulgadas",
-  "Tablet Media 10 pulgadas",
-  "Tablet Económica 8 pulgadas",
-  "Teclado Mecánico RGB BlueSwitch",
-  "Teclado Mecánico Compacto RedSwitch",
-  "Teclado Membrana Ergonómico",
-  "Mouse Inalámbrico Precisión Pro",
-  "Mouse Ergonómico Vertical",
-  "Mouse Gaming Sensor Óptico",
-  "Cámara Mirrorless 4K Profesional",
-  "Cámara Compacta Vlogging",
-  "Cámara Deportiva Action Cam",
-  "Consola Videoconsola NextGen A",
-  "Consola Videoconsola Portátil B",
-  "Consola Videoconsola Retro Edition",
-];
-
-//Callbacks
-//función que se envía como argumento de otra función
-
-// funcioncita(function(){})
-
-//find()
-//El método .find() recorre el array y devuelve el primer elemento que cumple con una condición que nosotros definimos.
-console.log(
-  productosTecnologicos.find(function (produc) {
-    //acciones
-    return produc === "Laptop MarcaA Air 16GB RAM";
-  }),
-);
-
-productosTecnologicos.find((produc) => produc === "Laptop MarcaA Air 16GB RAM");
-
-const numeritos = [18, 22, 100, 15, 28, 12, 25, 19, 5];
-
-console.log(numeritos.find((num) => num > 20));
-
-//filter()
-//buscar monitores
-const monitores = productosTecnologicos.filter((cosita) =>
-  cosita.includes("Monitor"),
-);
-
-//buscar notebooks
-const notebooks = productosTecnologicos.filter(
-  (produc) => produc.includes("Laptop"), //[]
-);
-
-// if (notebooks.length > 0) {
-//   alert("✅Encontramos " + notebooks.length + " productos");
-// } else {
-//   alert("❌No hay productos para esta búsqueda");
-// }
-
-const buscarProductos = (termino) => {
-  return productosTecnologicos.filter((producto) => producto.includes(termino));
+//objetos
+const perro = {
+  raza: "Caniche",
+  edad: 8,
+  estatura: "micro toy",
+  adoptado: true,
+  nombre: "Firulais",
 };
 
-//forEach
-productosTecnologicos.forEach((item, index) =>
-  console.log(`${index + 1} - ${item}`),
+console.log(
+  `El nombre de tu perro es ${perro.nombre} y su raza es ${perro.raza}`,
 );
 
-// for (let index = 0; index < productosTecnologicos.length; index++) {
-//   console.log(`${index + 1} - ${productosTecnologicos[index]}`)
+const user = {
+  id: 1,
+  username: "pmarino",
+  password: "12345678",
+  state: true,
+  role: "admin",
+  score: [23, 56, 89],
+};
 
-// }
+console.log(user.username);
+console.log(user["username"]);
 
-//map()
-const productosConCodigo = productosTecnologicos.map((prod, index) => {
-  let cod = new Date().getTime() * (index + 1);
-  return `${prod}(cod: ${cod})`;
-});
+//modificar el valor de una propiedad
+user.state = false;
+user.password = "password";
+
+//Agregar una propiedad
+user.area = "IT";
+user.sexo = "Masculino";
+
+//ejemplo
+document.body.innerText = user.username;
+
+//Eliminar propiedad
+delete user.sexo;
+
+const user002 = {
+  id: 2,
+  name: "Ervin Howell",
+  username: "Antonette",
+  email: "Shanna@melissa.tv",
+  address: {
+    street: "Victor Plains",
+    suite: "Suite 879",
+    city: "Wisokyburgh",
+    zipcode: "90566-7771",
+    geo: {
+      lat: "-43.9509",
+      lng: "-34.4618",
+    },
+  },
+  phone: "010-692-6593 x09125",
+  website: "anastasia.net",
+  company: {
+    name: "Deckow-Crist",
+    catchPhrase: "Proactive didactic contingency",
+    bs: "synergize scalable supply-chains",
+  },
+};
+
+console.log(user002.address.geo);
+const latitud = user002.address.geo.lat;
+const longitud = user002.address.geo.lng;
+const { lat, lng } = user002.address.geo;
