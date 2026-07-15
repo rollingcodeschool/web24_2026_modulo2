@@ -38,3 +38,20 @@ picture {
     font-size: 80px;
   }
 }
+
+.dark-mode {
+  background-color: #121212;
+
+  .card {
+    background-color: #1e1e1e;
+    color: #dedede !important;
+  }
+  .navbar {
+    background-color: #1e1e1e !important;
+  }
+  .navbar-brand,
+  .nav-link,
+  .container {
+    color: #dedede !important;
+  }
+}
