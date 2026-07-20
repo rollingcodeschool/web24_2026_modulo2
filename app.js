@@ -69,8 +69,12 @@ fetch("https://devsapihub.com/api-movies")
   .catch((error) => console.log(error));
 
 const traerPeliculas = async () => {
-  const respuesta = await fetch("https://devsapihub.com/api-movies");
-  const movies = await respuesta.json();
-  return movies;
+  try {
+    const respuesta = await fetch("https://devsapihub.com/api-movies");
+    const movies = await respuesta.json();
+    return movies;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 console.log(traerPeliculas().then((respuesta) => console.log(respuesta)));
