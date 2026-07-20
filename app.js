@@ -1,11 +1,11 @@
 //funciones de tiempo
+const contador = document.querySelector(".card-text");
 
 let intervalo = null;
 let count = 0;
 const segundero = () => {
   intervalo = setInterval(() => {
-    console.log(count);
-    count++;
+    contador.innerText = count++;
   }, 1000);
 };
 
@@ -13,15 +13,39 @@ const detener = () => {
   clearInterval(intervalo);
 };
 
-const reset = () => (count = 0);
+const reset = () => {
+  count = 0;
+  contador.innerText = count;
+};
 
 //setTimeout
+
+const img = document.querySelector("#imagen");
+const cardFooter = document.querySelector(".card-footer");
+const messageContainer = document.createElement("div");
+// messageContainer.classList.add("alert")
+messageContainer.role = "alert";
+
 const delivery = () => {
-  console.log("Preparando tu pedido...⏲️");
+  // console.log("Preparando tu pedido...⏲️");
+  // setTimeout(() => {
+  //   console.log("Podés retirar tu pedido 🍔🍟");
+  // }, 3000);
+  img.src = "./assets/cocinando.gif";
+
+  document.querySelector(".btn-warning").setAttribute("disabled", "");
+  messageContainer.classList = "alert alert-warning";
+  messageContainer.innerText = "Preparando tu pedido...⏲️";
+  cardFooter.append(messageContainer);
   setTimeout(() => {
-    console.log("Podés retirar tu pedido 🍔🍟");
-  }, 3000);
+    messageContainer.classList = "alert alert-success";
+    messageContainer.innerText = "Podés retirar tu pedido 🍔🍟";
+    document.querySelector(".btn-warning").removeAttribute("disabled");
+    img.src = "./assets/aviso.gif";
+  }, 5000);
 };
+
+document.querySelector(".btn-warning").addEventListener("click", delivery);
 
 //promesas
 const miPromesa = () => {

@@ -10,12 +10,64 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <style>
+      img {
+        width: 150px;
+        height: 200px;
+
+        object-fit: cover;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <div class="row">
         <div class="col">
           <h1>Javascript Fundamentos</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3>Segundero⏱️</h3>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <div class="card-body text-center">
+              <p class="card-text fs-2 fw-bold">0</p>
+              <button class="btn btn-success" onclick="segundero()">
+                Play
+              </button>
+              <button class="btn btn-secondary" onclick="reset()">Reset</button>
+              <button class="btn btn-danger" onclick="detener()">Stop</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3>Delivery RollingFood🍔</h3>
+        </div>
+        <div class="col text-center">
+          <div class="card" style="width: 18rem">
+            <img
+              id="imagen"
+              src="./assets/tienda.gif"
+              class="card-img-top"
+              alt="cocinando"
+            />
+            <div class="card-body">
+              <h5 class="card-title fs-3">Pedido online</h5>
+              <button class="btn btn-warning">
+                <p class="fs-2 m-0">🍔</p>
+                <p class="m-0 fw-bold">Realizar pedido</p>
+              </button>
+            </div>
+            <div class="card-footer">
+              <!-- <div class="alert alert-warning" role="alert">
+                Preparando tu pedido...⏲️
+              </div> -->
+            </div>
+          </div>
         </div>
       </div>
     </div>
