@@ -71,6 +71,7 @@ fetch("https://devsapihub.com/api-movies")
 const traerPeliculas = async () => {
   try {
     const respuesta = await fetch("https://devsapihub.com/api-movies");
+    console.log(respuesta);
     const movies = await respuesta.json();
     return movies;
   } catch (error) {
@@ -78,3 +79,52 @@ const traerPeliculas = async () => {
   }
 };
 console.log(traerPeliculas().then((respuesta) => console.log(respuesta)));
+
+/*
+
+## Explicación sencilla
+
+En app.js, la línea:
+
+```js
+const respuesta = await fetch("https://devsapihub.com/api-movies");
+```
+
+hace esto:
+
+1. `fetch(...)` inicia una petición HTTP al servidor.
+2. Esa operación devuelve una `Promise`.
+3. `await` espera a que esa promesa termine.
+4. Cuando termina, el valor que recibe en `respuesta` NO son todavía las películas, sino un objeto `Response`.
+
+### ¿Qué es ese objeto `Response`?
+Es la respuesta HTTP completa que devolvió el servidor. Por ejemplo, incluye cosas como:
+
+- si la petición fue exitosa
+- el estado HTTP (`200`, `404`, etc.)
+- los headers
+- el cuerpo de la respuesta
+
+### Entonces, ¿qué devuelve exactamente el primer `await`?
+Devuelve:
+
+- un objeto `Response` de `fetch`
+
+Y luego, la siguiente línea:
+
+```js
+const movies = await respuesta.json();
+```
+
+es la que sí convierte el cuerpo de esa respuesta en un objeto JavaScript real, como un array de películas.
+
+### Analogía rápida
+Piensa en esto:
+
+- `fetch()` = “voy a pedir la información”
+- `await` = “me quedo esperando a que llegue”
+- `respuesta` = “ya llegó la caja, pero todavía no la abrí”
+- `respuesta.json()` = “abro la caja y la convierto en datos útiles”
+
+> En resumen: el primer `await` devuelve la respuesta HTTP completa; el segundo `await` devuelve los datos ya convertidos a JSON.
+*/
